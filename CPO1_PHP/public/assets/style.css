@@ -1,0 +1,237 @@
+:root {
+    --primary: #1f3a5f;
+    --primary-light: #2f5d9a;
+    --accent: #e8a317;
+    --bg: #f1f4f9;
+    --card: #ffffff;
+    --text: #1d2433;
+    --muted: #6b7385;
+    --border: #dde3ee;
+    --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.45;
+    font-size: 14px;
+}
+
+/* Шапка */
+.site-header {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    padding: 10px 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
+}
+.site-header a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+main {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 0 16px;
+}
+
+h1 {
+    margin: 0 0 14px;
+    font-size: 22px;
+    color: var(--primary);
+}
+
+/* Фильтры */
+.filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+    background: var(--card);
+    padding: 10px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(30, 50, 90, .06);
+    margin-bottom: 18px;
+}
+.filters input[type="search"] { flex: 1 1 200px; }
+.filters input,
+.filters select {
+    padding: 7px 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+    background: #fff;
+    color: var(--text);
+}
+.filters input:focus,
+.filters select:focus {
+    outline: none;
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 3px rgba(47, 93, 154, .18);
+}
+.filters button {
+    padding: 7px 16px;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.filters button:hover { background: var(--primary-light); }
+.filters a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 6px;
+}
+.filters a:hover { color: var(--primary); text-decoration: underline; }
+
+/* Карточки */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 14px;
+}
+.card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    box-shadow: 0 2px 8px rgba(30, 50, 90, .06);
+    transition: transform .2s, box-shadow .2s;
+}
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(30, 50, 90, .14);
+}
+.card h2 {
+    margin: 0 0 4px;
+    font-size: 16px;
+}
+.card h2 a {
+    color: var(--primary);
+    text-decoration: none;
+}
+.card h2 a:hover { text-decoration: underline; }
+.card p { margin: 4px 0; font-size: 13px; }
+
+.position {
+    display: inline-block;
+    background: #eaf1fb;
+    color: var(--primary-light);
+    font-weight: 600;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 999px;
+}
+.disciplines {
+    color: var(--muted);
+    font-size: 12px !important;
+    padding-top: 6px;
+    margin-top: 8px !important;
+    border-top: 1px dashed var(--border);
+}
+
+/* Сообщения */
+.error {
+    background: #fdecec;
+    color: #a30000;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border-left: 4px solid #d93025;
+}
+
+/* Телефоны */
+@media (max-width: 600px) {
+    h1 { font-size: 20px; }
+    .filters { flex-direction: column; align-items: stretch; }
+    .filters a { text-align: center; padding: 6px 0; }
+}
+/* Исправление ширины */
+main {
+    width: calc(100% - 32px);
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 0;
+}
+
+/* Страница преподавателя */
+.back { color: var(--primary-light); text-decoration: none; }
+.back:hover { text-decoration: underline; }
+
+.profile {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-bottom: 20px;
+}
+.profile h1 { margin-bottom: 8px; }
+.profile p { margin: 6px 0; }
+
+.section-title { font-size: 18px; color: var(--primary); margin: 0 0 10px; }
+
+.day {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    margin-bottom: 12px;
+}
+.day h3 { margin: 0 0 8px; font-size: 15px; color: var(--primary-light); }
+
+.schedule { width: 100%; border-collapse: collapse; }
+.schedule td { padding: 7px 8px; border-top: 1px solid var(--border); font-size: 13px; }
+.schedule tr:first-child td { border-top: none; }
+.schedule .time { white-space: nowrap; font-weight: 600; width: 110px; }
+.schedule .room { white-space: nowrap; font-weight: 600; text-align: right; }
+
+.badge { padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+.badge.lecture { background: #e6f4ea; color: #1e7a3c; }
+.badge.lab { background: #fff3dc; color: #a36a00; }
+/* Кнопка «Сбросить» */
+.filters a {
+    display: inline-block;
+    padding: 7px 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .2s, border-color .2s;
+}
+.filters a:hover {
+    background: #eaf1fb;
+    border-color: var(--primary-light);
+    text-decoration: none;
+}
+
+/* Кнопка «Назад к каталогу» */
+.back {
+    display: inline-block;
+    padding: 7px 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .2s, border-color .2s;
+}
+.back:hover {
+    background: #eaf1fb;
+    border-color: var(--primary-light);
+    text-decoration: none;
+}
